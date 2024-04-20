@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Amiros\PersianDigit\PersianDigit;
 use PHPUnit\Framework\TestCase;
 
 final class PersianDigitTest extends TestCase
@@ -8,7 +9,7 @@ final class PersianDigitTest extends TestCase
     {
         $text = '۰۱۲۳۴۵۶۷۸۹';
 
-        $convertedText = \Amiros\PersianDigit\PersianDigit::convert($text);
+        $convertedText = PersianDigit::convert($text);
 
         $this->assertSame("0123456789", $convertedText);
     }
@@ -17,7 +18,7 @@ final class PersianDigitTest extends TestCase
     {
         $text = '0123456789';
 
-        $convertedText = \Amiros\PersianDigit\PersianDigit::convert($text, "fa");
+        $convertedText = PersianDigit::convert($text, "fa");
 
         $this->assertSame("۰۱۲۳۴۵۶۷۸۹", $convertedText);
     }
